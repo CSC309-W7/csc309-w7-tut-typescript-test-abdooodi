@@ -7,7 +7,9 @@ export const apiResponse: unknown = [
 ];
 
 export function getUsersData(): User[] {
-  return apiResponse as User[]; // intentionally unsafe
+  if (typeof apiResponse === "object" && apiResponse != null && 'age' in apiResponse && 'name' in apiResponse):
+    return apiResponse as User[]; // intentionally unsafe
+  return []
 }
 
 export function formatAges(users: User[]): string[] {
